@@ -2,6 +2,7 @@
 <html>
 <head>
 <meta charset="utf-8" />
+<title>控制机器人</title>
 <script type="text/javascript" src="http://static.robotwebtools.org/EventEmitter2/current/eventemitter2.min.js"></script>
 <script type="text/javascript" src="http://static.robotwebtools.org/roslibjs/current/roslib.min.js"></script>
 <style type="text/css">
@@ -121,7 +122,6 @@
     oStop.onmouseup=function ()
     {
       Move('stop');
-      //这里应该指定stop命令否？
     }
 
     oUp.onmouseup=oDown.onmouseup=oLeft.onmouseup=oRight.onmouseup=function ()
@@ -135,8 +135,7 @@
     event = event || window.event;/*||为或语句，当IE不能识别event时候，就执行window.event 赋值*/
     console.log(event.keyCode);
     switch (event.keyCode){
-        /*keyCode:字母和数字键的键码值*/          
-        /*65,87,68,83分别对应awds*/
+        /*65,87,68,83,81分别对应awdsq;是为键码值*/
         case 65:                 
             Move('left');
             break;
@@ -149,6 +148,8 @@
         case 83:
             Move('down');
             break;
+        case 81:
+            Move('stop');
         default:
             break;
     }
@@ -228,14 +229,15 @@
 </script>
 </head>
 
+
 <div id="app">
   <h4>调查满意度</h4>
   <p>当前👍：{{counter}}</p>
   <button v-on:click="addition">👍</button>
   <button v-on:click="subtraction">👎</button>
 </div>
-
 <body>
+
 
   <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
   <script>
@@ -258,15 +260,16 @@
   </script>
 
 
-  <h1>Rosbridge 样例</h1>
-  <h2>Move turtle with teleop or button</h2>
-  <h3>First</h3>
-  <p>on robot machine,run: roslaunch rosbridge_server rosbridge_websocket.launch</p>
-  <h3>Second</h3>
-  <p>on robot machine,run: rosrun turtlesim turtlesim_node</p>
-  <h3>Third</h3>
-  <p>on this webpage control turtle with up,down,left,right key</p>
-  <p>Check your Web Console for output.</p>
+  <h1>机器人控制实例</h1>
+  <!--<h2>通过键盘控制机器人行走</h2>-->
+  <h3>按w键或点击“前行”</h3>
+  <p>机器人前行 ，move up</p>
+  <h3>按a键或点击左转</h3>
+  <p>机器人左转，move left</p>
+  <h3>按d键或点击右转</h3>
+  <p>机器人右转，move right</p>
+  <h3>按s键或点击“后退”</h3>
+  <p>机器人后退，move down</p>
 
   <input type="button" value="前行" id="up">
   <input type="button" value="后退" id="down">
@@ -274,13 +277,15 @@
   <input type="button" value="右转" id="right">
   <input type="button" value="停止" id="stop">
 
-  <h3>Team:周-梓-鸣</h3>
+  <h4>Team:周-梓-鸣</h4>
   <p id = "output"></p>
 
   <div id="mbox" style="width:704px;height:704px;border:1px solid red;position: relative;">
     <div id="box1" style="margin-left:330px;margin-top:330px;position:absolute;" ></div>    
   </div>
 </body>
+
+
 </html>
 
 
