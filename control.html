@@ -227,7 +227,36 @@
 
 </script>
 </head>
+
+<div id="app">
+  <h4>调查满意度</h4>
+  <p>当前👍：{{counter}}</p>
+  <button v-on:click="addition">👍</button>
+  <button v-on:click="subtraction">👎</button>
+</div>
+
 <body>
+
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script>
+    const app = new Vue({
+      el:'#app',
+      data:{
+        counter:0
+      },
+      methods:{
+        addition:function(){
+          console.log('addition被执行');
+          this.counter++;
+        },
+        subtraction:function(){
+          console.log('subtraction被执行')
+          this.counter--;
+        }
+      }
+    });
+  </script>
+
 
   <h1>Rosbridge 样例</h1>
   <h2>Move turtle with teleop or button</h2>
