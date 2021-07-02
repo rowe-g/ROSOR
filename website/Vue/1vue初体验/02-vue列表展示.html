@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<div id="app">
+  <ul>
+    <li v-for="item in movies">{{item}}</li>
+  </ul>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script>
+  const app = new Vue({//vue传参数，对象类型
+    //对象里有其他属性，el is one of them
+    el:'#app',
+    data:{//真实开发，数据可能来自网络
+      message:'你好啊，李银河！',
+      //复杂数据类型:列表
+      movies:['黑客帝国','星际穿越','苏州河','上帝之城']
+    }
+  })
+</script>
+
+
+</body>
+</html>
