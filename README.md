@@ -1,4 +1,7 @@
-**网页端遥控机器人**
-我们能够实现，通过wsadq键或者鼠标点击，实现控制机器人的上下左右以及停止。
-
+***Simultaneous Locallization and Mapping***
+1. C++
+2. OpenCV
+3. Linux & ROS
+4. MATH basics
+5. Visual-SLAM
 
